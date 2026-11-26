@@ -18,6 +18,9 @@
     <nav>
         <div class="logo">Amelia Flower Shop</div>
         <div class="controls">
+            <button id="cartToggle" class="auth-btn">
+    🛒 Keranjang (<span id="cartCount">0</span>)
+</button>
             <span id="userGreeting" class="greeting-text hidden">Halo, User!</span>
             <button id="loginBtn" class="auth-btn">Login</button>
             <button id="logoutBtn" class="auth-btn hidden">Logout</button>
@@ -29,6 +32,16 @@
         <div class="masonry-grid" id="productGrid">
             <!-- Produk bunga dimuat di sini -->
         </div>
+        <div id="cartPanel" class="admin-section hidden">
+    <h2>🛒 Keranjang Belanja</h2>
+    <div id="cartItems"></div>
+
+    <h3>
+        Total: <span id="cartTotal">Rp0</span>
+    </h3>
+
+    <button id="checkoutBtn">Checkout</button>
+</div>
     </main>
 
     <!-- Tampilan Admin (Hanya untuk Owner) -->
