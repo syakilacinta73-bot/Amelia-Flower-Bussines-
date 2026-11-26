@@ -83,17 +83,20 @@
             </form>
         </div>
     </div>
-<!-- Navigasi -->
-    <nav>
-        <div class="logo">Amelia Flower Shop</div>
-        <div class="controls">
-            <span id="userGreeting" class="greeting-text hidden">Halo, User!</span>
-            <!-- TAMBAHAN TOMBOL KERANJANG -->
-            <button id="cartBtn" class="auth-btn">🛒 Keranjang (<span id="cartCount">0</span>)</button>
-            <button id="loginBtn" class="auth-btn">Login</button>
-            <button id="logoutBtn" class="auth-btn hidden">Logout</button>
+<!-- Modal Pop-up Keranjang -->
+    <div id="cartModal" class="modal hidden">
+        <div class="modal-content cart-modal-content">
+            <span class="close" id="closeCartModal">&times;</span>
+            <h2 style="margin-top: 0;">Keranjang Belanja</h2>
+            <div id="cartItemsList" class="cart-items-list">
+                <!-- Daftar belanja dimuat di sini -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">Total: <span id="cartTotalPrice">Rp 0</span></div>
+                <button id="checkoutBtn" style="width: 100%; margin-top: 10px;">Pesan Sekarang</button>
+            </div>
         </div>
-    </nav>
+    </div>
     <script src="script.js"></script>
 
 <script>
