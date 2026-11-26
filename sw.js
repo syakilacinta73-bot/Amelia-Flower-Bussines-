@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "amelia-flower-shop-v2";
+const CACHE_NAME = "amelia-flower-shop-v3";
 
 const APP_FILES = [
   "./",
