@@ -25,13 +25,17 @@ function renderCustomerView() {
     flowers.forEach(flower => {
         const card = document.createElement('div');
         card.className = 'product-card';
-        card.innerHTML = `
-            <img src="${flower.image}" alt="${flower.name}" loading="lazy">
-            <div class="product-info">
-                <h3 class="product-title">${flower.name}</h3>
-                <div class="product-price">${formatRupiah(flower.price)}</div>
-            </div>
-        `;
+        
+card.innerHTML = `
+    <img src="${flower.image}" alt="${flower.name}" loading="lazy">
+    <div class="product-info">
+        <h3 class="product-title">${flower.name}</h3>
+        <div class="product-price">${formatRupiah(flower.price)}</div>
+        <button onclick="addToCart(${flower.id})">
+            🛒 Tambah ke Keranjang
+        </button>
+    </div>
+`;
         grid.appendChild(card);
     });
 }
