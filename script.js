@@ -161,3 +161,34 @@ logoutBtn.addEventListener('click', () => {
 // Inisialisasi tampilan awal
 renderCustomerView();
 renderAdminView();
+// --- CHECKOUT OTOMATIS KE WHATSAPP ---
+checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert('Keranjang belanja kamu masih kosong!');
+        return;
+    }
+
+    // Ganti dengan nomor WhatsApp toko Amelia (gunakan kode negara 62 tanpa tanda +)
+    const nomorWA = '6283174200996'; 
+
+    let daftarPesanan = '';
+    let totalHarga = 0;
+
+    cart.forEach((item, index) => {
+        const subtotal = item.price * item.qty;
+        totalHarga += subtotal;
+        daftarPesanan += `${index + 1}. ${item.name} (${item.qty}x) - ${formatRupiah(subtotal)}\n`;
+    });
+
+    const pesan = `Halo Amelia Flower Shop! 🌸\nSaya ingin memesan buket bunga berikut:\n\n${daftarPesanan}\n*Total Pembayaran: ${formatRupiah(totalHarga)}*\n\nMohon info ketersediaan dan metode pembayarannya ya. Terima kasih!`;
+
+    // Buka WhatsApp dengan pesan yang sudah terisi otomatis
+    const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+    window.open(urlWA, '_blank');
+
+    // Kosongkan keranjang setelah diarahkan ke WhatsApp
+    cart = [];
+    saveCart();
+    updateCartUI();
+    cartModal.classList.add('hidden');
+});
